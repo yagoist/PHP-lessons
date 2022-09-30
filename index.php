@@ -1,28 +1,103 @@
 <?php
 
-// lesson 1, task 1 - DONE
+// lesson 2, task 1
 
 
-// lesson 1, task 2
+placeToReturnTask1:
+
+$answer = readline('В каком году произошло крещение Руси? Варианты: 810 год, 988 год или 740 год');
+
+if((int)$answer === 810 || (int)$answer === 740) {
+    echo 'Ответ не верный!';
+} elseif ((int)$answer === 988) {
+    echo 'Ответ верный!';
+} else {
+    goto placeToReturnTask1;
+}
+
+
+// lesson 2, task 2
+
 
 $userName = readline('Введите Ваше имя.');
-$userAge = readline('Введите Ваш возраст.');
+$numberOfTasks = (int)readline('Какое количество задач на сегодня у Вас запланировано?');
+$arrayOfAnswers = []; //массив ответов задач и времени
+$totalTasksTime = 0;
 
-echo('Вас зовут '.$userName.', вам '.$userAge.' лет.').PHP_EOL;
 
-// lesson 1, task 3
+for ($i = 0; $i !== $numberOfTasks; $i++) {
+    $userTask = readline('Какая задача № '.($i+1).' стоит перед Вами сегодня?');
+    $userTaskTime = (int)readline('Сколько примерно времени эта задача займет?');
+    $arrayOfAnswers[] = [$userTask, $userTaskTime];
+}
 
-$userTask1 = readline('Какая первая задача стоит перед Вами сегодня?');
-$userTask1Time = (int) readline('Сколько примерно времени эта задача займет?');
-$userTask2 = readline('Какая вторая задача стоит перед Вами сегодня?');
-$userTask2Time = (int)readline('Сколько примерно времени эта задача займет?');
-$userTask3 = readline('Какая третья задача стоит перед Вами сегодня?');
-$userTask3Time = (int)readline('Сколько примерно времени эта задача займет?');
+echo ($userName.' у Вас запланировано '.$numberOfTasks.' задачи на сегодня:').PHP_EOL;
 
-echo($userName.', сегодня у Вас запланировано 3 приоритетных задачи на день:'.PHP_EOL
-    .'- '.$userTask1.' ('.$userTask1Time.'ч)'.PHP_EOL
-    .'- '.$userTask2.' ('.$userTask2Time.'ч)'.PHP_EOL
-    .'- '.$userTask3.' ('.$userTask3Time.'ч)'.PHP_EOL
-    .'Примерное время выполнения плана = '.($userTask1Time + $userTask2Time + $userTask3Time).' ч.'
+foreach ($arrayOfAnswers as $value) {
+        $totalTasksTime += $value[1];
+        echo ('- '.$value[0].', продолжительностью '.$value[1].' ч.').PHP_EOL;
+}
 
-).PHP_EOL;
+echo ('Все задачи займут '.$totalTasksTime.' часов.').PHP_EOL;
+
+
+// lesson 2, task 3
+
+
+placeToReturnTask3:
+
+$userInteger = (int)readline('Введите число которое надо поситать на пальцах.');
+$fingerDirection = 0; //0 - направление счета вправо, 1 - направление счета влево
+$numberOfFinger = 0; //порядковый номер пальца
+$count = 0; //счетчик для сравнения ввода пользователя
+
+if ($userInteger <= 0) goto placeToReturnTask3;
+
+function answer_Finger($input) {
+    switch ($input) {
+        case 1:
+            echo ('Счет закончится на большом пальце.');
+            break;
+        case 2:
+            echo ('Счет закончится на указательном пальце.');
+            break;
+        case 3:
+            echo ('Счет закончится на среднем пальце.');
+            break;
+        case 4:
+            echo ('Счет закончится на безымянном пальце.');
+            break;
+        case 5:
+            echo ('Счет закончится на мизинце.');
+            break;
+    }
+}
+
+for ($i=0; $i < $userInteger; $i++) {
+    if ($count === $userInteger) {
+      answer_Finger($numberOfFinger);
+      break;
+    }
+    if ($count === 0) {
+        $numberOfFinger++;
+        $count++;
+    }
+    if ($numberOfFinger === 5 && $fingerDirection === 0) {
+        $numberOfFinger = 4;
+        $count++;
+        $fingerDirection = 1;
+    }
+    if ($numberOfFinger === 1 && $fingerDirection === 1) {
+        $numberOfFinger = 2;
+        $count++;
+        $fingerDirection = 0;
+    }
+    if ($fingerDirection === 0) {
+        $numberOfFinger++;
+        $count++;
+    }
+    if ($fingerDirection === 1) {
+        $numberOfFinger--;
+        $count++;
+    }
+}
