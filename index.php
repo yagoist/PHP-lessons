@@ -1,103 +1,82 @@
 <?php
 
-// lesson 2, task 1
+// lesson 3, task 1
 
 
-placeToReturnTask1:
+$arrayOne = [5, 7, 8, 15, 5, 2, 3, 34, 9, 10];
+$arrayTwo = [3, 4, 6, 9, 1, 14, 21, 6, 8, 15];
+$arrayResult = [];
 
-$answer = readline('В каком году произошло крещение Руси? Варианты: 810 год, 988 год или 740 год');
-
-if((int)$answer === 810 || (int)$answer === 740) {
-    echo 'Ответ не верный!';
-} elseif ((int)$answer === 988) {
-    echo 'Ответ верный!';
-} else {
-    goto placeToReturnTask1;
+for ($i = 0; $i < count($arrayOne); $i++) {
+        $arrayResult[] = $arrayOne[$i] * $arrayTwo[$i];
 }
+print_r($arrayResult);
 
 
-// lesson 2, task 2
+//// lesson 3, task 2
 
 
-$userName = readline('Введите Ваше имя.');
-$numberOfTasks = (int)readline('Какое количество задач на сегодня у Вас запланировано?');
-$arrayOfAnswers = []; //массив ответов задач и времени
-$totalTasksTime = 0;
+$userName = readline('Введите имя именинника.');
+$congratulationsPartOne = ['богатырского здоровья', 'надежных друзей', 'чаще улыбаться', 'держаться огурцом', 'не быть помидором', 'не двинуть кони'];
+$congratulationsPartTwo = ['с работы не выгнали', 'денег побольше', 'богатств несметных', 'жена любила', 'ноги носили', 'руки таскали'];
+
+$randomCongratulation = [
+    0 => $congratulationsPartOne[array_rand($congratulationsPartOne)],
+    1 => $congratulationsPartTwo[array_rand($congratulationsPartTwo)]
+];
+
+echo('Дорогой '.$userName.', от всего сердца поздравляю тебя с днем рождения, желаю '.(implode(', и чтобы ', $randomCongratulation).'!!!'));
 
 
-for ($i = 0; $i !== $numberOfTasks; $i++) {
-    $userTask = readline('Какая задача № '.($i+1).' стоит перед Вами сегодня?');
-    $userTaskTime = (int)readline('Сколько примерно времени эта задача займет?');
-    $arrayOfAnswers[] = [$userTask, $userTaskTime];
+//// lesson 3, task 3
+
+$students = [
+    'ИТ20' => [
+        'Иванов Иван' => 5,
+        'Кириллов Кирилл' => 3,
+        'Сопляков Виктор' => 4,
+        'Кишкин Никита' => 3,
+        'Воротников Николай' => 3,
+        'Сепультура Ольга' => 5,
+        'Заборов Александр' => 2,
+        'Жигули Виталий' => 3,
+        'Лошадиный Сергей' => 3,
+        'Красный Александр' => 5,
+    ],
+    'БАП20' => [
+        'Никитин Никита' => 4,
+        'Дмитриев Дмитрий' => 4,
+        'Конюшкин Виктор' => 4,
+        'Закидышев Никита' => 1,
+        'Пузатов Николай' => 4,
+        'Слипнотова Ольга' => 2,
+        'Парадный Александр' => 5,
+        'Москвич Виталий' => 3,
+        'Зайцев Сергей' => 5,
+        'Синий Александр' => 2,
+    ]
+];
+
+$averageGradeTotal = 0;
+$nameOfBestGroup = '';
+$studentsForOut = $students;
+
+foreach ($students as $indexGroup => $group) {
+        $averageGrade = 0;
+        $sumGrade = 0;
+    foreach ($group as $student => $grade) {
+            $sumGrade += $grade;
+            if ($grade > 2) {
+                unset($studentsForOut[$indexGroup][$student]);
+            }
+        }
+    $averageGrade = $sumGrade / count($group);
+     if ($averageGrade > $averageGradeTotal) {
+         $averageGradeTotal=$averageGrade;
+         $nameOfBestGroup = $indexGroup;
+     }
+
 }
+echo ("Наибольшая средняя оценка составляет: $averageGradeTotal в группе: $nameOfBestGroup").PHP_EOL;
+print_r($studentsForOut); //вывод на отчисление
 
-echo ($userName.' у Вас запланировано '.$numberOfTasks.' задачи на сегодня:').PHP_EOL;
-
-foreach ($arrayOfAnswers as $value) {
-        $totalTasksTime += $value[1];
-        echo ('- '.$value[0].', продолжительностью '.$value[1].' ч.').PHP_EOL;
-}
-
-echo ('Все задачи займут '.$totalTasksTime.' часов.').PHP_EOL;
-
-
-// lesson 2, task 3
-
-
-placeToReturnTask3:
-
-$userInteger = (int)readline('Введите число которое надо поситать на пальцах.');
-$fingerDirection = 0; //0 - направление счета вправо, 1 - направление счета влево
-$numberOfFinger = 0; //порядковый номер пальца
-$count = 0; //счетчик для сравнения ввода пользователя
-
-if ($userInteger <= 0) goto placeToReturnTask3;
-
-function answer_Finger($input) {
-    switch ($input) {
-        case 1:
-            echo ('Счет закончится на большом пальце.');
-            break;
-        case 2:
-            echo ('Счет закончится на указательном пальце.');
-            break;
-        case 3:
-            echo ('Счет закончится на среднем пальце.');
-            break;
-        case 4:
-            echo ('Счет закончится на безымянном пальце.');
-            break;
-        case 5:
-            echo ('Счет закончится на мизинце.');
-            break;
-    }
-}
-
-for ($i=0; $i < $userInteger; $i++) {
-    if ($count === $userInteger) {
-      answer_Finger($numberOfFinger);
-      break;
-    }
-    if ($count === 0) {
-        $numberOfFinger++;
-        $count++;
-    }
-    if ($numberOfFinger === 5 && $fingerDirection === 0) {
-        $numberOfFinger = 4;
-        $count++;
-        $fingerDirection = 1;
-    }
-    if ($numberOfFinger === 1 && $fingerDirection === 1) {
-        $numberOfFinger = 2;
-        $count++;
-        $fingerDirection = 0;
-    }
-    if ($fingerDirection === 0) {
-        $numberOfFinger++;
-        $count++;
-    }
-    if ($fingerDirection === 1) {
-        $numberOfFinger--;
-        $count++;
-    }
-}
