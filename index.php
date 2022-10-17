@@ -14,11 +14,14 @@ $user1 = new User('Dmitrii', 'Ivanov', 'male');
         ->setEmail('divan@mail.ru')
         ->setIsActive(true);
 
-$task1 = new Task($user1);
+$user2 = new User ('Ivan', 'Petrov', 'male');
 
-    $task1->setDescription('Провести поросёнка по огороду и показать ему где хавать, а где какать...');
-    $task1->markAsDone();
+$task1 = new Task($user1, new DateTime());
 
-$comment = new Comment('First', $user1, $task1);
+    $task1
+        ->setDescription('Провести поросёнка по огороду и показать ему где хавать, а где какать...')
+        ->markAsDone();
 
-    var_dump($comment);
+    TaskService::addComment($task1,  $user2, 'gthghtjtkrkmfcnv000000');
+
+    var_dump($task1);

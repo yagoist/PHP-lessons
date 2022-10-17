@@ -1,30 +1,33 @@
 <?php
 
+
 class Task
 {
     private string $description;
-    private DateTimeInterface $dateCreated;
     private DateTimeInterface $dateUpdate;
     private DateTimeInterface $dateDone;
     private int $priority;
     private bool $isDone = false;
-    private Comment $comment;
+    private array $commentary;
 
-        public function getComment(): string
+    function __construct (
+        private User $user,
+        private DateTimeInterface $dateCreated
+    )
     {
-        return $this->comment ;
+    }
+
+    public function getComment(): object
+    {
+        return $this->commentary;
     }
 
 
-    public function setComment(string $comment): self
+    public function setComment($comment): self
     {
-        $this->comment = $comment;
+        $this->commentary[] = $comment;
         return $this;
-    }
 
-    function __construct (private object $user)
-    {
-        $this->setDateCreated(new DateTime());
     }
 
 
@@ -39,12 +42,6 @@ class Task
         $this->setDateUpdate(new DateTime());
         $this->description = $description;
         return $this;
-    }
-
-
-    public function getDateCreated(): DateTimeInterface
-    {
-        return $this->dateCreated;
     }
 
 

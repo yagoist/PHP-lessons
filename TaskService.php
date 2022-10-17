@@ -1,15 +1,14 @@
 <?php
 
+
 class TaskService
 {
 
-    public static  function addComment(User $user, Task $task, Comment $comment): array
+    public static function addComment(Task $task, User $user, string $text): void
     {
-        $userFirstName = $user->getFirstName();
-        $userSecondName = $user->getSecondName();
+        $comment = new Comment($task, $user, $text);
+        $task->setComment($comment);
 
-
-        $answer = [""]
-        return [] ;
     }
+
 }

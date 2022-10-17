@@ -2,30 +2,33 @@
 
 class Comment
 {
+    private string $text;
+    private string $author;
+    private Task $task;
 
-    private array $comment;
-
-    function __construct
-    (
-        private string $text,
-        private User $author,
-        private Task $task
-    )
+    function __construct(Task $taskt, User $usert, string $textt)
     {
-
+        $firstNameUser = $usert->getFirstName();
+        $secondNameUser = $usert->getSecondName();
+        $authorFullName = "${firstNameUser} ${secondNameUser}";
+        $this->author = $authorFullName;
+        $this->text = $textt;
+        $this->task = $taskt;
     }
 
-    public function getComment(): array
+    public function getText(): string
     {
-        return $this->comment;
+        return $this->text;
     }
 
-    public function setComment(array $comment): void
+    public function getAuthor(): string
     {
-        $firstNameUser = $this->author->getFirstName();
-        $secondNameUser = $this->author->getSecondName();
-        //допилить добавление автора и текста
-        $this->comment = $comment;
+        return $this->author;
+    }
+
+    public function getTask(): Task
+    {
+        return $this->task;
     }
 
 }
