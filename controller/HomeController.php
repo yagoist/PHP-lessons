@@ -1,22 +1,18 @@
-<?php
+ <?php
 
 $pageHeader = 'Добро пожаловать';
 
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
-    setcookie('userName', null, -1);
-    unset($_COOKIE['userName']);
+    unset($_SESSION['userName']);
 }
 
 $userName = null;
 
-if (isset($_COOKIE['userName'])) {
-    $userName = $_COOKIE['userName'];
+if (isset($_SESSION['userName'])) {
+    $userName = $_SESSION['userName'];
 } elseif (isset($_REQUEST['userName']) && !empty($_REQUEST['userName'])) {
     $userName = $_REQUEST['userName'];
-    $expires = time() + 86400;
-    setcookie('userName', $userName, $expires);
+    $_SESSION['userName'] = $userName;
 }
-
-
 
 require_once 'view/home.php';
