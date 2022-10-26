@@ -4,29 +4,48 @@ require_once 'model/Task.php';
 
 class TaskProvider
 {
-    private array $taskList;
+    function __construct(PDO $pdo){
 
-    public function addTask(string $description, Task $task): void
-    {
-        $_SESSION['taskList'][] = [
-            'description'=> $description,
-            'isDone' => $task -> getIsDone()
-        ];
     }
 
-    public function getTaskList(): array
+    public function getUndoneList():? array
     {
-        return $this->taskList;
-    }
-
-    public function setTaskList():? array
-    {
-        foreach ($_SESSION['taskList'] as $item) {
-            if(!$item['isDone']) {
-                $this ->taskList[] = new Task($item['description']);
-            }
+        $sql = 'SELECT id, description, isDone
+                FROM tasks
+                WHERE isDone = false';
+        $statement = $this->pdo-prepare($sql);
+        $arrayOfTasks = [];
+        while ($task = $statement->fetch()) {
+            $arrayOfTasks[] = new Task($task['id'], $task['description'], (bool)$task['isDone']);
         }
-        return $this->taskList ?? null;
+        return $arrayOfTasks?:null;
     }
 
+    public function addTask(string $text): void
+    {
+        try {
+                $statement = $this->pdo->prepare('INSERT INTO tasks (description) values(:desc)');
+                if(!$statement) {
+                    echo 'ошибка подготовки';
+                }
+                if(!$statement->execute([$text])) {
+                    echo 'ошибка экзак';
+                }
+            } catch (Exception $err)
+            {
+                var_dump($err);
+            }
+    }
+
+    public function updateTaskList(int $id): self
+    {
+        $sgl = 'UPDATE tasks
+                SET isDone = true
+                WHERE id = :id';
+
+        $statement = $this->pdo->prepare($sgl);
+        $statement->execute(['id' => $id]);
+
+        return $this;
+    }
 }
