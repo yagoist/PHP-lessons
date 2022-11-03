@@ -1,10 +1,10 @@
 <?php
 
-namespace Php_pro\Person;
+namespace Person;
 
 class Name
 {
-    function __construct (
+    public function __construct(
         private string $firstName,
         private string $lastName
     )
