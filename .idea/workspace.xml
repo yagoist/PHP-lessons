@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="217471a1-a10f-4754-b647-517b1169c3df" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/HomeController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/RegistrationController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/SecurityController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/TaskController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Task.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/TaskProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/UserProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/routes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/home.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/registration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/signin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/task.php" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="HW4" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FPCFaWCKhFRmC56UFHsyZvL6qq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="217471a1-a10f-4754-b647-517b1169c3df" name="Changes" comment="" />
+      <created>1664384237069</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664384237069</updated>
+      <workItem from="1664384239266" duration="2636000" />
+      <workItem from="1664393015133" duration="265000" />
+      <workItem from="1664396548620" duration="2505000" />
+      <workItem from="1664451446721" duration="839000" />
+      <workItem from="1664455187948" duration="255000" />
+      <workItem from="1664455547166" duration="7543000" />
+      <workItem from="1664564478862" duration="2950000" />
+      <workItem from="1664625869078" duration="11444000" />
+      <workItem from="1664653998057" duration="2030000" />
+      <workItem from="1664708463623" duration="139000" />
+      <workItem from="1664708947676" duration="666000" />
+      <workItem from="1664732066328" duration="9064000" />
+      <workItem from="1665321809793" duration="8485000" />
+      <workItem from="1665333710935" duration="5227000" />
+      <workItem from="1665596981962" duration="2568000" />
+      <workItem from="1666030729432" duration="4314000" />
+      <workItem from="1666367078370" duration="1461000" />
+      <workItem from="1666443357519" duration="6443000" />
+      <workItem from="1666525225573" duration="3992000" />
+      <workItem from="1666534042129" duration="416000" />
+      <workItem from="1666801733620" duration="6613000" />
+      <workItem from="1667045270424" duration="199000" />
+      <workItem from="1667320122456" duration="730000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
